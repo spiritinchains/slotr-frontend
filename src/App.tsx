@@ -1,9 +1,19 @@
-import React from 'react';
+import React from "react";
 
-function App() {
+import Timetable from "./components/Timetable";
+import Row from "./components/Row";
+import Timeslot from "./components/Timeslot";
+
+const App = () => {
   return (
-    <div>heya</div>
+  <Timetable>
+    <Row title="Monday">
+      <Timeslot title="class 1" />
+      <Timeslot title="class 2" />
+      <Timeslot title="class 3" />
+    </Row>
+  </Timetable>
   );
-}
+};
 
 export default App;

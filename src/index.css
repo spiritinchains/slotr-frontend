@@ -2,3 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.timetable {
+	@apply p-1 m-0 rounded-md
+}
+
+.minicard {
+	@apply p-2 mr-1 rounded-md text-center
+}
+
+.minicard-row {
+	@apply p-1 m-0 rounded-md
+}
