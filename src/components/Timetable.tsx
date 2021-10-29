@@ -1,10 +1,10 @@
 const Timetable = (props: any) => {
   return (
-    <div className="timetable bg-gray-900">
-      <span className="text-white">Routine</span>
+    <div className="timetable bg-gray-200">
+      <span>Routine</span>
       {props.children}
     </div>
-  )
+  );
 };
 
 export default Timetable;

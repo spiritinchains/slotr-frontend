@@ -1,9 +1,13 @@
+import Draggable from "react-draggable";
+
 const Timeslot = (props: any) => {
   return (
-    <div className="minicard bg-gray-300">
-      {props.title} <br/>
-      starttime-endtime
-    </div>
+    <Draggable axis="x">
+      <div className="minicard bg-gray-300">
+        {props.title} <br />
+        starttime-endtime
+      </div>
+    </Draggable>
   );
 };
 

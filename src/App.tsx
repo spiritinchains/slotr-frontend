@@ -6,13 +6,25 @@ import Timeslot from "./components/Timeslot";
 
 const App = () => {
   return (
-  <Timetable>
-    <Row title="Monday">
-      <Timeslot title="class 1" />
-      <Timeslot title="class 2" />
-      <Timeslot title="class 3" />
-    </Row>
-  </Timetable>
+    <div className="p-16 w-4/5">
+      <Timetable>
+        <Row title="Mon">
+          <Timeslot title="class 1" />
+          <Timeslot title="class 2" />
+          <Timeslot title="class 3" />
+        </Row>
+        <Row title="Wed">
+          <Timeslot title="class 1" />
+          <Timeslot title="class 2" />
+          <Timeslot title="class 3" />
+        </Row>
+        <Row title="Fri">
+          <Timeslot title="class 1" />
+          <Timeslot title="class 2" />
+          <Timeslot title="class 3" />
+        </Row>
+      </Timetable>
+    </div>
   );
 };
 

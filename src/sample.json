@@ -1,0 +1,82 @@
+{
+	"rows" : {
+		"161" : {
+			"name" : "Monday"
+		},
+		"94" : {
+			"name" : "Wednesday"
+		},
+		"146" : {
+			"name" : "Friday"
+		}
+	},
+
+	"events" : {
+		"442" : {
+			"name" : "CSE 4569",
+			"defaultLength" : 60
+		},
+		"68" : {
+			"name" : "CSE 4517",
+			"defaultLength" : 60
+		},
+		"121" : {
+			"name" : "CSE 4528",
+			"defaultLength" : 45
+		},
+		"9124" : {
+			"name" : "CSE 4590",
+			"defaultLength" : 120
+		}
+	},
+
+	"eventList" : [
+		{
+			"id" : 5290,
+			"eventid" : 68,
+			"relstart" : 0,
+			"duration" : 60,
+			"isRescheduled" : false,
+			"isCancelled" : false
+		},
+		{
+			"id" : 2798,
+			"eventid" : 121,
+			"relstart" : 0,
+			"duration" : 45,
+			"isRescheduled" : false,
+			"isCancelled" : false
+		},
+		{
+			"id" : 3252,
+			"eventid" : 9124,
+			"relstart" : 0,
+			"duration" : 120,
+			"isRescheduled" : false,
+			"isCancelled" : false
+		}
+	],
+
+	"routine" : {
+		"id" : 912841,
+		"start" : "08:00",
+		"end" : "17:00",
+		"rows" : [ 161, 94, 146 ],
+		"containerList" : [
+			{
+				"id" : 1923,
+				"start" : "08:00",
+				"end" : "09:00",
+				"rowid" : 161,
+				"isBlock" : false
+			},
+			{
+				"id" : 2978,
+				"start" : "12:00",
+				"end" : "14:00",
+				"rowid" : 146,
+				"isBlock" : false
+			}
+		]
+	}
+}
