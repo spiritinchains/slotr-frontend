@@ -1,6 +1,7 @@
 /* ./src/index.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,10 +11,19 @@
 	@apply p-1 m-1 rounded-md
 }
 
+.minicard-width {
+	width:40rem;
+	max-width:40rem;
+ }
+
 .minicard {
 	@apply p-2 mr-1 rounded-md text-center
 }
 
 .minicard-row {
-	@apply p-1 mt-1 rounded-md
+	@apply pr-0 pl-1 py-1 mt-1 rounded-md
+}
+
+.minicard-slot {
+	@apply minicard minicard-width
 }

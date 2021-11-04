@@ -1,81 +1,77 @@
 {
-	"rows" : {
-		"161" : {
-			"name" : "Monday"
-		},
-		"94" : {
-			"name" : "Wednesday"
-		},
-		"146" : {
-			"name" : "Friday"
-		}
-	},
-
-	"events" : {
-		"442" : {
-			"name" : "CSE 4569",
-			"defaultLength" : 60
-		},
-		"68" : {
-			"name" : "CSE 4517",
-			"defaultLength" : 60
-		},
-		"121" : {
-			"name" : "CSE 4528",
-			"defaultLength" : 45
-		},
-		"9124" : {
-			"name" : "CSE 4590",
-			"defaultLength" : 120
-		}
-	},
-
-	"eventList" : [
-		{
-			"id" : 5290,
-			"eventid" : 68,
-			"relstart" : 0,
-			"duration" : 60,
-			"isRescheduled" : false,
-			"isCancelled" : false
-		},
-		{
-			"id" : 2798,
-			"eventid" : 121,
-			"relstart" : 0,
-			"duration" : 45,
-			"isRescheduled" : false,
-			"isCancelled" : false
-		},
-		{
-			"id" : 3252,
-			"eventid" : 9124,
-			"relstart" : 0,
-			"duration" : 120,
-			"isRescheduled" : false,
-			"isCancelled" : false
-		}
-	],
-
-	"routine" : {
-		"id" : 912841,
-		"start" : "08:00",
-		"end" : "17:00",
-		"rows" : [ 161, 94, 146 ],
-		"containerList" : [
+	"timetable" : {
+		"id" : 7718,
+		"title" : "Sample Routine",
+		"rows" : [
 			{
-				"id" : 1923,
-				"start" : "08:00",
-				"end" : "09:00",
-				"rowid" : 161,
-				"isBlock" : false
+				"id" : 456,
+				"title" : "Monday"
 			},
 			{
-				"id" : 2978,
-				"start" : "12:00",
-				"end" : "14:00",
-				"rowid" : 146,
-				"isBlock" : false
+				"id" : 182,
+				"title" : "Wednesday"
+			},
+			{
+				"id" : 91,
+				"title" : "Friday"
+			}
+		],
+		"cols" : [
+			{
+				"id" : 918,
+				"start" : "08:00",
+				"end" : "09:00"
+			},
+			{
+				"id" : 12,
+				"start" : "09:00",
+				"end" : "10:00"
+			},
+			{
+				"id" : 78,
+				"start" : "10:00",
+				"end" : "11:00"
+			},
+			{
+				"id" : 164,
+				"start" : "11:00",
+				"end" : "12:00"
+			},
+			{
+				"id" : 95,
+				"start" : "03:00",
+				"end" : "04:45"
+			},
+			{
+				"id" : 94,
+				"start" : "05:00",
+				"end" : "05:30"
+			}
+		],
+		"slots" : [
+			{
+				"id" : 621,
+				"rowid" : 456,
+				"colid" : 918,
+				"title" : "Class 1"
+			},
+			{
+				"id" : 721,
+				"rowid" : 182,
+				"colid" : 12,
+				"title" : "Class 3"
+			},
+			{
+				"id" : 124,
+				"rowid" : 91,
+				"colid" : 78,
+				"title" : "Class 2"
+			},
+			{
+				"id" : 4,
+				"rowid" : 182,
+				"colid" : 94,
+				"title" : "Class 4"
 			}
 		]
 	}
