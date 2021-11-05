@@ -8,22 +8,44 @@
 @tailwind utilities;
 
 .timetable {
-	@apply p-1 m-1 rounded-md
+	@apply p-1 m-1 rounded-md;
+}
+
+.btn {
+	@apply w-40
+	p-1.5 m-2
+	rounded-lg
+	shadow-lg
+	transition-colors
+	font-display;
+}
+
+.btn-std {
+	@apply btn
+	text-gray-800
+	bg-gray-100
+	hover:bg-gray-200;
+}
+
+.btn-green {
+	@apply btn
+	text-green-100
+	bg-green-500 
+	hover:bg-green-700;
 }
 
 .minicard-width {
-	width:40rem;
-	max-width:40rem;
+	@apply w-80;
  }
 
 .minicard {
-	@apply p-2 mr-1 rounded-md text-center
+	@apply p-2 mr-1 rounded-md text-center transition-colors;
 }
 
 .minicard-row {
-	@apply pr-0 pl-1 py-1 mt-1 rounded-md
+	@apply pr-0 pl-1 py-1 mt-1 rounded-md bg-gray-50 border border-gray-200 flex;
 }
 
 .minicard-slot {
-	@apply minicard minicard-width
+	@apply minicard minicard-width flex justify-center items-center;
 }
