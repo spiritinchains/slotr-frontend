@@ -61,3 +61,31 @@ export const getStateFromObject = (timetable: TimetableObject) => {
   }
   return stateObj;
 };
+
+export const getObjectFromState = (state: TimetableState) => {
+  let tableObj : TimetableObject = {
+    name: state.name,
+    numrows: state.rows.length,
+    numcols: state.cols.length,
+    rows: state.rows.map((rowitem) => {
+      return rowitem.title;
+    }),
+    cols: state.cols,
+    slots: []
+  };
+
+  for (let i = 0; i < state.rows.length; i++) {
+    for (let j = 0; j < state.rows[i].slots.length; j++) {
+      const x = state.rows[i].slots[j];
+      if (x.state === "normal") {
+        tableObj.slots.push({
+          title: x.title,
+          row: i,
+          col: j
+        });
+      }
+    }
+  }
+
+  return tableObj;
+}
