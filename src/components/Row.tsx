@@ -1,8 +1,8 @@
 const Row = (props: any) => {
   return (
-    <div className="minicard-row">
-      <div className="minicard-slot p-1 bg-gray-700 text-white">
-        <span>{props.title}</span>
+    <div className="flex gap-1">
+      <div className="minicard p-2 bg-gray-700 text-white">
+        {props.title}
       </div>
       {props.children}
     </div>

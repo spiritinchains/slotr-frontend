@@ -7,8 +7,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.timetable {
-	@apply p-1 m-1 rounded-md;
+h1 {
+	@apply 
+	font-display
+	font-bold
+	text-4xl;
 }
 
 .btn {
@@ -17,14 +20,15 @@
 	rounded-lg
 	shadow-lg
 	transition-colors
-	font-display;
+	font-display
+	flex justify-center items-center gap-2;
 }
 
 .btn-std {
 	@apply btn
-	text-gray-800
-	bg-gray-100
-	hover:bg-gray-200;
+	text-gray-100
+	bg-gray-700
+	hover:bg-gray-800;
 }
 
 .btn-green {
@@ -34,18 +38,17 @@
 	hover:bg-green-700;
 }
 
-.minicard-width {
-	@apply w-80;
- }
+.timetable {
+	@apply p-1 m-1 
+	rounded-md 
+	font-display
+	flex flex-col gap-1;
+}
 
 .minicard {
-	@apply p-2 mr-1 rounded-md text-center transition-colors;
-}
-
-.minicard-row {
-	@apply pr-0 pl-1 py-1 mt-1 rounded-md bg-gray-50 border border-gray-200 flex;
-}
-
-.minicard-slot {
-	@apply minicard minicard-width flex justify-center items-center;
+	@apply w-80
+	rounded-md 
+	text-center 
+	transition-colors
+	flex justify-center items-center;
 }

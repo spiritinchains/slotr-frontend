@@ -1,34 +1,22 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
 const Timeslot = (props: any) => {
-  const handleClick = (e: MouseEvent) => {
-    console.log("clicked");
-  };
+  const [state, setState] = useState(props.empty);
 
-  const handleClickEmpty = (e: MouseEvent) => {
-    console.log("clicked empty " + e.buttons);
-  };
-
-  if (props.empty === true) {
+  if (state === true) {
     return (
-      <div
-        className="minicard-slot bg-gray-200 hover:bg-gray-300 text-gray-200 hover:text-gray-600"
-        onClick={handleClickEmpty}
-      >
-          <FaPlus />
+      <div className="minicard bg-gray-200 hover:bg-gray-300 text-gray-200 hover:text-gray-600">
+        <FaPlus />
+      </div>
+    );
+  } else {
+    return (
+      <div className="minicard text-gray-200 bg-gray-500 hover:bg-gray-600">
+        {props.title}
       </div>
     );
   }
-  return (
-    <div
-      className="minicard-slot bg-gray-300 hover:bg-gray-400"
-      onClick={handleClick}
-    >
-      {props.title} <br />
-      {props.start}-{props.end}
-    </div>
-  );
 };
 
 export default Timeslot;
