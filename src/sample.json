@@ -1,77 +1,60 @@
 {
 	"timetable" : {
-		"id" : 7718,
-		"title" : "Sample Routine",
+		"name" : "Sample Table",
+		"numrows" : 3,
+		"numcols" : 5,
 		"rows" : [
-			{
-				"id" : 456,
-				"title" : "Monday"
-			},
-			{
-				"id" : 182,
-				"title" : "Wednesday"
-			},
-			{
-				"id" : 91,
-				"title" : "Friday"
-			}
+			"Monday",
+			"Wednesday",
+			"Friday"
 		],
 		"cols" : [
 			{
-				"id" : 918,
 				"start" : "08:00",
 				"end" : "09:00"
 			},
 			{
-				"id" : 12,
 				"start" : "09:00",
 				"end" : "10:00"
 			},
 			{
-				"id" : 78,
 				"start" : "10:00",
 				"end" : "11:00"
 			},
 			{
-				"id" : 164,
 				"start" : "11:00",
 				"end" : "12:00"
 			},
 			{
-				"id" : 95,
-				"start" : "03:00",
-				"end" : "04:45"
-			},
-			{
-				"id" : 94,
-				"start" : "05:00",
-				"end" : "05:30"
+				"start" : "12:00",
+				"end" : "13:00"
 			}
 		],
 		"slots" : [
 			{
-				"id" : 621,
-				"rowid" : 456,
-				"colid" : 918,
-				"title" : "Class 1"
+				"title" : "Class 1",
+				"row" : 0,
+				"col" : 1
 			},
 			{
-				"id" : 721,
-				"rowid" : 182,
-				"colid" : 12,
-				"title" : "Class 3"
+				"title" : "Class 2",
+				"row" : 2,
+				"col" : 4
 			},
 			{
-				"id" : 124,
-				"rowid" : 91,
-				"colid" : 78,
-				"title" : "Class 2"
+				"title" : "Class 1",
+				"row" : 1,
+				"col" : 3
 			},
 			{
-				"id" : 4,
-				"rowid" : 182,
-				"colid" : 94,
-				"title" : "Class 4"
+				"title" : "Class 3",
+				"row" : 0,
+				"col" : 3
+			},
+			{
+				"title" : "Class 2",
+				"row" : 1,
+				"col" : 2
 			}
 		]
 	}

@@ -1,38 +1,35 @@
-import Row from "./Row";
-import Timeslot from "./Timeslot";
+import { useRecoilState } from "recoil";
+import { timetableState } from "../atoms";
+import { getStateFromObject } from "../TimetableData";
+import { timetable } from "../sample.json";
 import TimetableHeader from "./TimetableHeader";
 import ColHeader from "./ColHeader";
-
-import { useState } from "react";
-import { timetable } from "../sample.json";
+import Row from "./Row";
+import Timeslot from "./Timeslot";
+import { useEffect } from "react";
 
 const Timetable = (props: any) => {
-  const [routine, setRoutine] = useState(timetable);
+  const [state, setState] = useRecoilState(timetableState);
+  useEffect(() => {
+    let x = getStateFromObject(timetable);
+    setState(x);
+  });
   return (
     <div className="timetable bg-gray-100 border-gray-200 border">
       <TimetableHeader>
-        {routine.cols.map((colitem) => {
-          return <ColHeader title={colitem.start + "-" + colitem.end} />;
+        {state.cols.map((colitem) => {
+          return <ColHeader title={`${colitem.start}-${colitem.end}`} />;
         })}
       </TimetableHeader>
-      {routine.rows.map((rowitem) => {
+      {state.rows.map((rowitem) => {
         return (
           <Row title={rowitem.title}>
-            {routine.cols.map((colitem) => {
-              const x = routine.slots.find(
-                (slotitem) =>
-                  slotitem.rowid === rowitem.id && slotitem.colid === colitem.id
-              );
-              if (x) {
-                return <Timeslot empty={false} title={x.title} />;
-              } else {
-                return <Timeslot empty={true} />;
-              }
+            {rowitem.slots.map((slotitem) => {
+              return <Timeslot title={slotitem.title} state={slotitem.state} />;
             })}
           </Row>
         );
       })}
-      {props.children}
     </div>
   );
 };
