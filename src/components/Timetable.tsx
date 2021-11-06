@@ -13,7 +13,8 @@ const Timetable = (props: any) => {
   useEffect(() => {
     let x = getStateFromObject(timetable);
     setState(x);
-  });
+  }, []);
+
   return (
     <div className="timetable bg-gray-100 border-gray-200 border">
       <TimetableHeader>

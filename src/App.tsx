@@ -11,13 +11,11 @@ const App = () => {
     <RecoilRoot>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-        <Routes>
-          <Route path="/edit" element={<EditPage />} />
-        </Routes>
-        <Routes>
-          <Route path="/view" element={<ViewPage />} />
+          <Route path="/">
+            <Route index  element={<HomePage />} />
+            <Route path="edit" element={<EditPage />} />
+            <Route path="view" element={<ViewPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
