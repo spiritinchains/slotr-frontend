@@ -15,6 +15,9 @@ const Timetable = (props: any) => {
     setState(x);
   }, []);
 
+
+  
+
   return (
     <div className="timetable bg-gray-100 border-gray-200 border">
       <TimetableHeader>
@@ -26,7 +29,7 @@ const Timetable = (props: any) => {
         return (
           <Row title={rowitem.title}>
             {rowitem.slots.map((slotitem) => {
-              return <Timeslot title={slotitem.title} state={slotitem.state} />;
+              return <Timeslot title={slotitem.title} state={slotitem.state} rowindex={state.rows.indexOf(rowitem)} index={rowitem.slots.indexOf(slotitem)} onClick={props.handleSlotChange}/>;
             })}
           </Row>
         );

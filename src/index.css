@@ -49,6 +49,7 @@ h1 {
 	@apply w-80
 	rounded-md 
 	text-center 
+	gap-2
 	transition-colors
 	flex justify-center items-center;
 }
