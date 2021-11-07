@@ -14,6 +14,7 @@ export interface TimetableObject {
     row: number;
     col: number;
   }[];
+  id?: string;
 }
 
 export interface TimetableState {

@@ -4,17 +4,22 @@ import Navigation from "../components/Navigation";
 import { FaPlusCircle, FaSave } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { timetableState } from "../atoms";
-import { TimetableState } from "../TimetableData";
-import { useState } from "react";
+import { TimetableState, getObjectFromState, TimetableObject } from '../TimetableData';
+import { useState} from "react";
+import { useParams} from 'react-router-dom';
+
+import server from '../backend/actualServer';
+
 
 const EditPage = () => {
   const [state, setState] = useRecoilState(timetableState);
-  const [rowName, setRowName] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+  const [rowName, setRowName] = useState("DEFAULT");
+  const [startTime, setStartTime] = useState("00:00");
+  const [endTime, setEndTime] = useState("01:00");
+
+  let {tid} = useParams();
   
   const handleAddRow = () => {
-    
     setState((s) => {
       let slotObjectTemplate = {
         title: "",
@@ -39,6 +44,29 @@ const EditPage = () => {
       };
     });
   };
+
+  const handleRemoveRow = (index : number) => {
+    setState((s) => {
+      let slotObjectTemplate = {
+        title: "",
+        state: "empty",
+      };
+      let emptySlots = new Array(s.cols.length);
+      for(let i = 0; i < s.cols.length; i++)
+      {
+        emptySlots[i] = {};
+        Object.assign(emptySlots[i], slotObjectTemplate);
+      }
+      return {
+        name: s.name,
+        rows: s.rows.filter( (row) => {
+          return s.rows[index] != row;
+        }),
+        cols: s.cols,
+      };
+    });
+  }
+
   const handleAddColumn = () => {
     setState((s) => {
       let x: TimetableState = {
@@ -67,7 +95,35 @@ const EditPage = () => {
     });
   };
 
-  const handleSave = () => {};
+  const handleRemoveCol = (index : number) => {
+    setState((s) => {
+      let x: TimetableState = {
+        name: s.name,
+        rows: s.rows.map((e) => {
+          return {
+            title: e.title,
+            slots: e.slots.filter((item)=>{
+              return e.slots.indexOf(item) != index;
+            }),
+          };
+        }),
+        cols: s.cols.filter((item)=>{
+          return s.cols.indexOf(item) != index;
+        }),
+      };
+      return x;
+    });
+
+    console.log("REMOVE COL");
+  }
+
+  const handleSave = () => {
+    server.saveDynamicData(getObjectFromState(state), tid);
+  };
+  const handleStaticSave = () => {
+    console.log(tid);
+  };
+
 
   const handleSlotChange = (rowindex : number, index : number, mytitle: string, mystate: "empty" | "normal" | "menu" | "editing") => {
     setState((s) => {
@@ -116,7 +172,7 @@ const EditPage = () => {
         </button>
       </div>
       <div className="mx-16">
-        <Timetable handleSlotChange={handleSlotChange}/>
+        <Timetable handleSlotChange={handleSlotChange} handleRemoveRow={handleRemoveRow} handleRemoveCol={handleRemoveCol}/>
       </div>
       <div className="p-1 flex justify-center">
         <button className="btn-green" onClick={handleSave}>
