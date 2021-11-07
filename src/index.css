@@ -15,7 +15,7 @@ h1 {
 }
 
 .btn {
-	@apply w-40
+	@apply w-48
 	p-1.5 m-2
 	rounded-lg
 	shadow-lg
@@ -61,3 +61,13 @@ h1 {
 	hover:bg-yellow-700;
 }
 
+
+.edit_field{
+	@apply m-2 
+	p-1 
+	font-display 
+	border-solid 
+	border 
+	rounded-md
+	border-gray-500;
+}

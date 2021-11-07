@@ -24,6 +24,7 @@ const EditPage = () => {
   
   
   const handleAddRow = () => {
+    if(state.rows.length >= 7) return;
     setState((s) => {
       let slotObjectTemplate = {
         title: "",
@@ -70,6 +71,7 @@ const EditPage = () => {
   };
 
   const handleAddColumn = () => {
+    if(state.cols.length >= 10) return;
     setState((s) => {
       let x: TimetableState = {
         name: s.name,
@@ -191,20 +193,23 @@ const EditPage = () => {
         </div>
       </div>
       <div className="p-1 flex justify-center">
+        <div className="flex border-gray-200 border rounded-lg bg-gray-100">
         <input
-          type="text"
+          type="text" className="edit_field" placeholder="Row/Day Name"
           onChange={(e) => {
             setRowName(e.target.value);
           }}
         />
+        
         <button className="btn-std" onClick={handleAddRow}>
           <FaPlusCircle /> Add Row
         </button>
-        <input type="time" onChange={(e) => setStartTime(e.target.value)} />{" "}
-        <input type="time" onChange={(e) => setEndTime(e.target.value)} />
+        <input type="time" onChange={(e) => setStartTime(e.target.value)} className="edit_field"/>{" "}
+        <input type="time" onChange={(e) => setEndTime(e.target.value)} className="edit_field"/>
         <button className="btn-std" onClick={handleAddColumn}>
           <FaPlusCircle /> Add Column
         </button>
+        </div>
       </div>
       <div className="mx-16">
         <Timetable
@@ -215,10 +220,10 @@ const EditPage = () => {
         />
       </div>
       <div className="p-1 flex justify-center">
-        <button className="btn-green" onClick={handleSave}>
-          <FaSave /> Save
+        <button className="btn-green flex-wrap" onClick={handleSave}>
+          <FaSave /> Save Current
         </button>
-        <button className="btn-green" onClick={handleStaticSave}>
+        <button className="btn-yellow flex-wrap" onClick={handleStaticSave}>
           <FaSave /> Save Permanent
         </button>
         

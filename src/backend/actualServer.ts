@@ -19,8 +19,19 @@ const createRoutineData = async () : Promise<TimetableObject> =>{
 
     let res = await axios.post(SAVE_ROUTE, {timetable: obj});
 
+
+
     if(res != undefined)
-        return res.data.result;
+    {
+        let stat = {timetable: res.data.result};
+        let r2 = await axios.post(SAVE_STATIC_ROUTE, stat);
+        if(r2 != undefined)
+        {
+            return r2.data.result;
+        }
+        else
+            return obj;
+    }
     else
         return obj;
     
