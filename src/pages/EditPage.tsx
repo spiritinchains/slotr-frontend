@@ -4,20 +4,21 @@ import Navigation from "../components/Navigation";
 import { FaPlusCircle, FaSave } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { timetableState } from "../atoms";
-import { TimetableState, getObjectFromState, TimetableObject } from '../TimetableData';
-import { useState} from "react";
+import { TimetableState, getObjectFromState, TimetableObject, getStateFromObject } from '../TimetableData';
+import { useState, useEffect } from 'react';
 import { useParams} from 'react-router-dom';
 
 import server from '../backend/actualServer';
 
 
 const EditPage = () => {
+  let {tid} = useParams();
   const [state, setState] = useRecoilState(timetableState);
   const [rowName, setRowName] = useState("DEFAULT");
   const [startTime, setStartTime] = useState("00:00");
   const [endTime, setEndTime] = useState("01:00");
-
-  let {tid} = useParams();
+  const [tidState, setTid] = useState(tid);
+  
   
   const handleAddRow = () => {
     setState((s) => {
@@ -114,14 +115,28 @@ const EditPage = () => {
       return x;
     });
 
-    console.log("REMOVE COL");
+    
+  }
+
+  
+
+  const fetchDynamicData = async () => {
+    let x = await server.getDynamicData(String(tid));
+    console.log(x);
+    setState( getStateFromObject(x));
+  }
+
+  const fetchStaticData = async () => {
+    let x = await server.getStaticData(String(tid));
+    console.log(x);
+    setState( getStateFromObject(x));
   }
 
   const handleSave = () => {
     server.saveDynamicData(getObjectFromState(state), tid);
   };
   const handleStaticSave = () => {
-    console.log(tid);
+    server.saveStaticData(getObjectFromState(state), tid);
   };
 
 
@@ -151,13 +166,20 @@ const EditPage = () => {
 
     //console.log(rowindex, index);
   };
-  
 
+  useEffect(()=>{
+    fetchDynamicData();
+  }, [] );
+  
   return (
+    
     <div>
       <Navigation />
       <div className="mx-16 py-4 text-gray-800">
-        <h1>Table Title</h1>
+        <h1>{state.name}</h1>
+        <button className="btn-green" onClick={()=>{
+          fetchStaticData();
+        }}>Load Saved Routine</button>
       </div>
       <div className="p-1 flex justify-center">
         <input type="text" onChange={(e) => {
@@ -178,9 +200,10 @@ const EditPage = () => {
         <button className="btn-green" onClick={handleSave}>
           <FaSave /> Save
         </button>
-        <button className="btn-green" onClick={handleSave}>
+        <button className="btn-green" onClick={handleStaticSave}>
           <FaSave /> Save Permanent
         </button>
+        
       </div>
     </div>
   );
