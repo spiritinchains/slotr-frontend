@@ -54,3 +54,10 @@ h1 {
 	flex justify-center items-center;
 }
 
+.btn-yellow{
+	@apply btn
+	text-green-100
+	bg-yellow-500 
+	hover:bg-yellow-700;
+}
+

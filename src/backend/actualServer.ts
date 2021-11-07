@@ -7,7 +7,7 @@ const GET_STATIC_ROUTE = 'http://localhost:1337/timetable/getstatic/';
 const SAVE_ROUTE = 'http://localhost:1337/timetable/save';
 const SAVE_STATIC_ROUTE = 'http://localhost:1337/timetable/savestatic/';
 
-const createRoutineData = async () : Promise<string> =>{
+const createRoutineData = async () : Promise<TimetableObject> =>{
     let obj = {
         "name": "Routine",
         "numrows": 0,
@@ -19,10 +19,10 @@ const createRoutineData = async () : Promise<string> =>{
 
     let res = await axios.post(SAVE_ROUTE, {timetable: obj});
 
-    if(res.data != undefined)
-        return res.data.result.id;
+    if(res != undefined)
+        return res.data.result;
     else
-        return "INVALID";
+        return obj;
     
 }
 
@@ -89,4 +89,4 @@ const getStaticData = async (id: string) => {
 }
 
 
-export default {saveDynamicData, saveStaticData, getDynamicData, getStaticData};
+export default {saveDynamicData, saveStaticData, getDynamicData, getStaticData, createRoutineData};

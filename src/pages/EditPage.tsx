@@ -179,11 +179,16 @@ const EditPage = () => {
     
     <div>
       <Navigation />
-      <div className="mx-16 py-4 text-gray-800">
+      <div className="flex justify-between mx-16 py-4 text-gray-800">
         <h1>{state.name}</h1>
-        <button className="btn-green" onClick={()=>{
+        <div className="flex">
+        <button className="btn-yellow" onClick={()=>{
           fetchStaticData();
         }}>Load Saved Routine</button>
+        <button className="btn-green" onClick={()=>{
+          fetchDynamicData();
+        }}>Load Current Routine</button>
+        </div>
       </div>
       <div className="p-1 flex justify-center">
         <input
