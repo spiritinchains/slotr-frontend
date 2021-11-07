@@ -2,6 +2,7 @@ import Navigation from "../components/Navigation";
 import server from '../backend/actualServer';
 import { useState} from 'react';
 import {Link} from 'react-router-dom';
+import { FaPlusCircle } from "react-icons/fa";
 
 
 const HomePage = () => {
@@ -13,10 +14,12 @@ const HomePage = () => {
   return (
     <div>
       <Navigation />
-      <div className="flex flex-col justify-center items-center font-display">
-        <button className="w-40 rounded-xl shadow-xl p-4 m-2 transition-colors hover:bg-green-600 bg-green-500 text-green-100"
+      <div className="mt-16 flex flex-col justify-center items-center font-display">
+        <span className="m-8 font-logo text-6xl">[slotr]</span>
+        <span className="font-display m-8">A routine management app</span>
+        <button className="flex justify-center items-center gap-2 w-40 rounded-xl shadow-xl p-4 m-2 transition-colors hover:bg-green-600 bg-green-500 text-green-100"
          onClick={()=> createEntry()}>
-          Create
+          <FaPlusCircle /> Create
         </button>
         
         { tid!= "" &&<div> <Link to={`edit/${tid}`}> EDIT LINK : </Link> 

@@ -24,7 +24,7 @@ const ViewPage = () => {
   return (
     <div>
       <Navigation />
-      <div className="mx-16 py-4 text-gray-800 flex justify-between">
+      <div className="mx-16 mt-8 py-4 text-gray-800 flex justify-between">
         <h1>{state.name}</h1>
         
       </div>

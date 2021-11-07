@@ -56,12 +56,13 @@ h1 {
 
 .btn-yellow{
 	@apply btn
-	text-yellow-100
-	bg-yellow-400 
-	hover:bg-yellow-500
+	text-red-500
+	bg-red-50
+	hover:bg-red-500
+	hover:text-red-100
 	border
 	border-opacity-50
-	border-yellow-600;
+	border-red-600;
 }
 
 
