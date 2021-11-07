@@ -1,4 +1,4 @@
-import { FaPlus, FaSave, FaPen } from "react-icons/fa";
+import { FaPlus, FaSave, FaPen, FaTimesCircle } from 'react-icons/fa';
 import { useState } from "react";
 
 const Timeslot = (props: any) => {
@@ -26,7 +26,8 @@ const Timeslot = (props: any) => {
         />
         <button
           onClick={() =>
-            props.onClick(props.rowindex, props.index, editTitle, "normal")
+            editTitle=="" && props.onClick(props.rowindex, props.index, editTitle, "empty") ||
+            editTitle!="" && props.onClick(props.rowindex, props.index, editTitle, "normal")
           }
         >
           <FaSave />
@@ -42,9 +43,15 @@ const Timeslot = (props: any) => {
             props.onClick(props.rowindex, props.index, editTitle, "editing")
           }
         >
+         
           {" "}
           <FaPen />{" "}
         </button>
+
+        <button onClick={() => {
+          setEditTitle("");
+          props.onClick(props.rowindex, props.index, editTitle, "empty")
+        }}><FaTimesCircle/></button>
       </div>
     );
   } else return <div></div>;
