@@ -10,10 +10,21 @@ const SAVE_STATIC_ROUTE = 'http://localhost:1337/timetable/savestatic/';
 const createRoutineData = async () : Promise<TimetableObject> =>{
     let obj = {
         "name": "Routine",
-        "numrows": 0,
-        "numcols": 0,
-        "rows": [],
-        "cols": [],
+        "numrows": 5,
+        "numcols": 1,
+        "rows": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "cols": [
+            {
+                "start": "8:00",
+                "end": "9:00"
+            }
+        ],
         "slots": []
     };
 

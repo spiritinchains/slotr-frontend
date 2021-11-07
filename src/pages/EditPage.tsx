@@ -233,12 +233,12 @@ const EditPage = () => {
         />
         
         <button className="btn-std" onClick={handleAddRow}>
-          <FaPlusCircle /> Add Row
+          <FaPlusCircle /> Add Day
         </button>
         <input type="time" onChange={(e) => setStartTime(e.target.value)} className="edit_field"/>{" "}
         <input type="time" onChange={(e) => setEndTime(e.target.value)} className="edit_field"/>
         <button className="btn-std" onClick={handleAddColumn}>
-          <FaPlusCircle /> Add Column
+          <FaPlusCircle /> Add Timeslot
         </button>
         </div>
       </div>
