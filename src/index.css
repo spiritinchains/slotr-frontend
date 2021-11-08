@@ -15,7 +15,7 @@ h1 {
 }
 
 .btn {
-	@apply w-40
+	@apply w-48
 	p-1.5 m-2
 	rounded-lg
 	shadow-lg
@@ -54,3 +54,24 @@ h1 {
 	flex justify-center items-center;
 }
 
+.btn-yellow{
+	@apply btn
+	text-red-500
+	bg-red-50
+	hover:bg-red-500
+	hover:text-red-100
+	border
+	border-opacity-50
+	border-red-600;
+}
+
+
+.edit_field{
+	@apply m-2 
+	p-1 
+	font-display 
+	border-solid 
+	border 
+	rounded-md
+	border-gray-500;
+}
