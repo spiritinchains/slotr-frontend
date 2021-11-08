@@ -1,4 +1,4 @@
-// Abandon all hope ye who 
+// Abandon all hope ye who enter here
 
 import Timetable from "../components/Timetable";
 import Navigation from "../components/Navigation";
@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import { useParams} from 'react-router-dom';
 
 import server from '../backend/actualServer';
+import TitleCard from "../components/TitleCard";
 
 //import server from "../backend/dummyServer";
 
@@ -21,7 +22,6 @@ const EditPage = () => {
   const [startTime, setStartTime] = useState("00:00");
   const [endTime, setEndTime] = useState("01:00");
   const [tidState, setTid] = useState(tid);
-  //const [titleEdit, setTitleEdit] = useState({flag: true, name: state.name});
   
   
   const handleAddRow = () => {
@@ -178,42 +178,12 @@ const EditPage = () => {
     fetchDynamicData();
   }, [] );
   
-  /*
-  // improvisation 100
-  const handleTitleChange = () => {
-    return setState((s) => {
-      let x : TimetableState = {
-        name: titleEdit.name,
-        rows: s.rows,
-        cols: s.cols
-      };
-      return x;
-    });
-  }
-  const TitleCard = (props: any) => {
-    if (props.state.flag) {
-      return (
-        <div className="flex justify-center items-center gap-4 font-display text-4xl">
-          <h1>{state.name}</h1>
-          <button onClick={(e)=>setTitleEdit({flag:false, name:titleEdit.name})}><FaPen /></button>
-        </div>
-      );
-    } else {
-      return (
-        <div className="flex justify-center items-center gap-4 font-display text-4xl">
-          <input className="rounded-md border border-gray-400" value={state.name} onChange={(e)=>setTitleEdit({flag:false, name:e.target.value})} />
-          <FaSave onClick={(e)=>{ handleTitleChange(); setTitleEdit({flag:true, name:titleEdit.name})}}/>
-        </div>
-      );
-    }
-  };
-  */
 
   return (
     <div>
       <Navigation />
       <div className="flex justify-between mx-16 mt-8 py-4 text-gray-800">
-        <h1>{state.name}</h1>
+        <TitleCard />
         <div className="flex">
         <button className="btn-yellow" onClick={()=>{
           fetchStaticData();
