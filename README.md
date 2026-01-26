@@ -24,3 +24,11 @@ To start the app in development mode run:
 to start the deployment server in `localhost:3000/`.
 
 App is used in conjunction with the backend repo [here](https://www.github.com/FireBlaze236/slotr-server). Make sure to follow the instructions on the repo to successfully run the backend app or many features may not work (such as creating and saving routines).
+
+## Screenshots
+
+![Home Page](/img/home.jpeg)
+
+![View Page](/img/view.jpeg)
+
+![Edit Page](/img/edit.jpeg)
